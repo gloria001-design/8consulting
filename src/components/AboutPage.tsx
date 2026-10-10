@@ -1,4 +1,3 @@
-import React from "react";
 import "./style/AboutPage.css";
 
 const AboutPage: React.FC = () => {

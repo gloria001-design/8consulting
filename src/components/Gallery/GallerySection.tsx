@@ -1,4 +1,3 @@
-import React from "react";
 import "../style/GallerySection.css";
 import { bootcampPhotos } from "./GalleryPhotos";
 

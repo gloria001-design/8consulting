@@ -1,4 +1,3 @@
-import React from 'react';
 import './style/FutureDirection.css';
 
 const FutureDirection = () => {
