@@ -1,20 +1,21 @@
+
 .solutions-section {
   width: 90%;
-  height: 90%;
-  /* max-width: 1200px; */
+  max-width: 1200px;
   margin: 0 auto;
   padding: 4rem 2rem;
   box-sizing: border-box;
-  background: #fcfcfd;;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #fcfcfd;
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
-.holder{
-    width: 100%;
-    height: 150vh;
-      background: #fcfcfd;
-     display: flex;
-     justify-content: center;
-     align-items: center;
+
+.holder {
+  width: 100%;
+  min-height: 100vh;
+  background: #fcfcfd;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* Top Content */
@@ -29,17 +30,19 @@
 .solutions-image-column {
   min-width: 0;
 }
+
 .solutions-image {
   width: 100%;
-  aspect-ratio: 16 / 9.5; /* Maintains correct aspect ratio automatically */
-  height: auto;           /* Prevents forced vertical stretching or clipping */
+  aspect-ratio: 16 / 9.5;
+  height: auto;
   display: block;
   object-fit: cover;
-  object-position: top center; /* Focuses framing from the top so faces are never cut off */
+  object-position: top center;
   border-radius: 16px;
 }
 
 .section-label {
+  display: block;
   margin-top: 1.2rem;
   margin-bottom: 0.5rem;
   color: #ff6b7a;
@@ -61,11 +64,12 @@
   color: #1e0b4b;
 }
 
-/* Right Column (Intro) */
+/* Right Column */
 .solutions-intro {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  min-width: 0;
   padding-left: 2.5rem;
   border-left: 2px dashed #4caae8;
 }
@@ -88,7 +92,7 @@
   margin: 0;
   color: #6a6778;
   font-size: 0.82rem;
-  line-height: 1.6;
+  line-height: 1.7;
 }
 
 .intro-note {
@@ -103,12 +107,13 @@
 /* Services Grid */
 .services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 1.25rem;
 }
 
 /* Service Card */
 .service-card {
+  min-width: 0;
   min-height: 190px;
   padding: 1.6rem 1.6rem 1.8rem;
   box-sizing: border-box;
@@ -116,7 +121,10 @@
   border-radius: 16px;
   background: #ffffff;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
 }
 
 .service-card:hover {
@@ -173,5 +181,139 @@
   margin: 0;
   color: #787588;
   font-size: 0.78rem;
-  line-height: 1.55;
+  line-height: 1.65;
+}
+
+/* Tablets and smaller laptops */
+@media (max-width: 1024px) {
+  .solutions-section {
+    width: 94%;
+    padding: 3rem 1.5rem;
+  }
+
+  .solutions-top {
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .solutions-intro {
+    padding-left: 1.5rem;
+  }
+
+  .solutions-heading {
+    font-size: 1.9rem;
+  }
+
+  .intro-heading {
+    font-size: 1.7rem;
+  }
+
+  .services-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-card {
+    padding: 1.4rem;
+  }
+}
+
+/* Mobile phones */
+@media (max-width: 768px) {
+  .holder {
+    min-height: auto;
+    height: auto;
+    display: block;
+  }
+
+  .solutions-section {
+    width: 100%;
+    height: auto;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .solutions-top {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .solutions-image {
+    aspect-ratio: 16 / 10;
+    border-radius: 12px;
+  }
+
+  .solutions-heading {
+    font-size: clamp(1.7rem, 6vw, 2.2rem);
+    line-height: 1.2;
+  }
+
+  .solutions-intro {
+    padding-left: 1rem;
+    border-left: 2px dashed #4caae8;
+  }
+
+  .intro-heading {
+    font-size: clamp(1.6rem, 5.5vw, 2rem);
+    line-height: 1.25;
+  }
+
+  .intro-text {
+    max-width: 100%;
+    font-size: 0.9rem;
+    line-height: 1.75;
+  }
+
+  .intro-note {
+    max-width: 100%;
+    margin: 1.25rem 0 0;
+    text-align: left;
+    font-size: 0.78rem;
+  }
+
+  .services-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .service-card {
+    min-height: auto;
+    padding: 1.4rem;
+    border-radius: 12px;
+  }
+
+  .service-card-top {
+    margin-bottom: 1rem;
+  }
+
+  .service-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .service-card p {
+    font-size: 0.85rem;
+    line-height: 1.7;
+  }
+
+  .service-card:hover {
+    transform: none;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .solutions-section {
+    padding: 2rem 1rem;
+  }
+
+  .solutions-heading {
+    font-size: 1.65rem;
+  }
+
+  .intro-heading {
+    font-size: 1.5rem;
+  }
+
+  .service-card {
+    padding: 1.2rem;
+  }
 }
