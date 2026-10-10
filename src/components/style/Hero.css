@@ -1,0 +1,319 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap' );
+
+.hero-section {
+  width: 100%;
+  min-height: 85vh;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 3rem;
+  padding: 3rem 6%;
+  box-sizing: border-box;
+  background: #ffffff;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  overflow: hidden;
+}
+
+/* Left Content Column */
+.hero-left {
+  flex: 1;
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  z-index: 2;
+}
+
+/* Badge */
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #210552;
+  border-radius: 100px;
+  background: #ffffff;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  display: inline-block;
+  flex-shrink: 0;
+  border-radius: 50%;
+  background-color: #e5293e;
+}
+
+.pill-text {
+  color: #210552;
+  font-size: 0.78rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+/* Heading */
+.hero-heading {
+  margin: 0 0 1.2rem;
+  color: #1b0a3f;
+  font-size: clamp(2.5rem, 5vw, 4.4rem);
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.highlight {
+  color: #d82b35;
+}
+
+/* Description */
+.hero-subtext {
+  max-width: 510px;
+  margin: 0 0 2rem;
+  color: #5d5a6d;
+  font-size: 0.95rem;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+/* Call-to-Action Buttons */
+.cta-container {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.8rem;
+}
+
+.btn-primary,
+.btn-secondary {
+  padding: 14px 24px;
+  border-radius: 100px;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    background-color 0.25s ease,
+    color 0.25s ease,
+    transform 0.25s ease;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid #210552;
+  background-color: #210552;
+  color: #ffffff;
+}
+
+.btn-primary:hover {
+  background-color: #35106f;
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border: 1px solid #210552;
+  background-color: transparent;
+  color: #210552;
+}
+
+.btn-secondary:hover {
+  background-color: #210552;
+  color: #ffffff;
+  transform: translateY(-2px);
+}
+
+.arrow {
+  font-size: 1.1rem;
+}
+
+/* Statistics */
+.stats-container {
+  display: flex;
+  align-items: center;
+  gap: 1.8rem;
+}
+
+.stat-box {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number,
+.stat-title {
+  margin-bottom: 4px;
+  color: #1b0a3f;
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.stat-label {
+  color: #8c899b;
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.divider {
+  width: 1px;
+  height: 32px;
+  background-color: #e2e0e8;
+}
+
+/* Right Image Column */
+.hero-right {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.image-wrapper {
+  position: relative;
+  width: min(100%, 600px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Main Hero Illustration */
+.hero-image {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  max-width: 600px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+}
+
+/* Planet Above the Person's Head */
+.planet-image {
+  position: absolute;
+  top: 3%;
+  left: 17%;
+  z-index: 3;
+  width: 90px;
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
+/* Tablet */
+@media (max-width: 1000px) {
+  .hero-section {
+    gap: 2rem;
+    padding: 3rem 5%;
+  }
+
+  .hero-heading {
+    font-size: clamp(2.3rem, 5vw, 3.5rem);
+  }
+
+  .hero-subtext {
+    font-size: 0.88rem;
+  }
+
+  .planet-image {
+    width: 75px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .hero-section {
+    min-height: auto;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2.5rem 1.5rem;
+  }
+
+  .hero-left {
+    max-width: 100%;
+  }
+
+  .pill-text {
+    font-size: 0.65rem;
+  }
+
+  .hero-heading {
+    font-size: clamp(2.4rem, 11vw, 3.5rem);
+  }
+
+  .hero-subtext {
+    max-width: 100%;
+    font-size: 0.88rem;
+  }
+
+  .cta-container {
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 2.2rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 12px 18px;
+    font-size: 0.8rem;
+  }
+
+  .stats-container {
+    gap: 1rem;
+  }
+
+  .stat-number,
+  .stat-title {
+    font-size: 1.2rem;
+  }
+
+  .stat-label {
+    font-size: 0.62rem;
+  }
+
+  .hero-right {
+    width: 100%;
+  }
+
+  .image-wrapper {
+    width: 100%;
+  }
+
+  .hero-image {
+    max-width: 480px;
+  }
+
+  .planet-image {
+    top: 3%;
+    left: 17%;
+    width: 65px;
+  }
+}
+
+/* Small Mobile */
+@media (max-width: 420px) {
+  .hero-section {
+    padding: 2rem 1rem;
+  }
+
+  .pill-badge {
+    padding: 5px 10px;
+  }
+
+  .pill-text {
+    font-size: 0.55rem;
+  }
+
+  .stats-container {
+    gap: 0.7rem;
+  }
+
+  .divider {
+    height: 26px;
+  }
+
+  .planet-image {
+    width: 55px;
+  }
+}

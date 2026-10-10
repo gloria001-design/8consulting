@@ -1,0 +1,224 @@
+header{
+    width: 100%;
+    height: 70px;
+    background-color: #FEFEFE;
+    display: flex;
+    justify-content: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.nav{
+    width: 90%;height: 100%;
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-between;
+}
+.nav-left{
+    width: 20%;
+    height: 100%;
+    /* background-color: green; */
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    img{
+        width: 100px;
+        height: 50px;
+
+    }
+}
+.nav-middle{
+    width: 50%;
+    height: 100%;
+    cursor: pointer;
+    /* background-color: yellow; */
+    
+    ul{
+        list-style: none;
+        display: flex;
+        color: #210552;
+        width: 90%;height: 100%;
+        /* background-color: #210552; */
+        justify-content: space-between;
+        align-items: center;
+        
+        li{
+            font-weight: 400;
+            font-style: Regular;
+            font-size: 20px;
+            line-height: 133%;
+            color: #210552;
+                    font-family: Poppins;
+
+            
+        }
+    }
+}
+.nav-right{
+    width: 20%;
+    height: 100%;
+    /* background-color: gray; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    .btn{
+        width: 220px;
+        height: 50px;
+        border-radius: 100px;
+        border: 1px solid #7B61A9;
+        background-color: #C62431;
+        padding: 10px;
+        font-weight: 500;
+        font-style: Medium;
+        font-size: 20px;
+        font-family: Poppins;
+        line-height: 133%;
+        letter-spacing: 0%;
+        color: #FFFFFF;
+        cursor: pointer;
+    }
+}
+
+/* ---------- Added: links, active state, mobile menu ---------- */
+
+/* links keep the original look */
+.nav-middle li a{
+    color: inherit;
+    text-decoration: none;
+    display: inline-block;
+    padding-bottom: 4px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.2s;
+}
+.nav-middle li:hover a{
+    border-bottom-color: rgba(33, 5, 82, 0.35);
+}
+.nav-middle li a:focus-visible{
+    outline: 2px solid #7B61A9;
+    outline-offset: 4px;
+    border-radius: 4px;
+}
+
+/* active link: React Router's NavLink adds the "active" class to the <a> */
+.nav-middle li a.active{
+    border-bottom-color: #210552;
+}
+
+/* hamburger + mobile-only button are hidden on desktop */
+.menu-toggle{
+    display: none;
+}
+.nav-mobile-cta{
+    display: none;
+}
+
+/* ---------- Tablet & mobile ---------- */
+@media (max-width: 900px){
+    .nav{
+        width: 92%;
+        align-items: center;
+    }
+    .nav-left{
+        width: auto;
+    }
+
+    .nav-right{
+        width: auto;
+        gap: 12px;
+        justify-content: flex-end;
+    }
+    .nav-right .btn{
+        width: 150px;
+        height: 42px;
+        font-size: 16px;
+    }
+
+    /* hamburger button */
+    .menu-toggle{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 5px;
+        width: 42px;
+        height: 42px;
+        padding: 0 10px;
+        background: transparent;
+        border: 1px solid #7B61A9;
+        border-radius: 10px;
+        cursor: pointer;
+    }
+    .menu-toggle span{
+        display: block;
+        height: 2px;
+        width: 100%;
+        background: #210552;
+        border-radius: 2px;
+        transition: transform 0.25s, opacity 0.2s;
+    }
+    .menu-toggle.open span:nth-child(1){ transform: translateY(7px) rotate(45deg); }
+    .menu-toggle.open span:nth-child(2){ opacity: 0; }
+    .menu-toggle.open span:nth-child(3){ transform: translateY(-7px) rotate(-45deg); }
+
+    /* nav links become a dropdown panel under the header */
+    .nav-middle{
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: auto;
+        background-color: #FEFEFE;
+        box-shadow: 0 12px 24px rgba(33, 5, 82, 0.12);
+        max-height: 0;
+        overflow: hidden;
+        visibility: hidden;
+        transition: max-height 0.3s ease, visibility 0.3s;
+    }
+    .nav-middle.open{
+        max-height: 460px;
+        visibility: visible;
+    }
+    .nav-middle ul{
+        flex-direction: column;
+        align-items: stretch;
+        justify-content: flex-start;
+        width: 100%;
+        height: auto;
+        margin: 0;
+        padding: 8px 4%;
+    }
+    .nav-middle ul li{
+        font-size: 18px;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(33, 5, 82, 0.08);
+    }
+    .nav-middle ul li:last-child{
+        border-bottom: none;
+    }
+    .nav-middle li a{
+        display: block;
+        width: fit-content;
+    }
+}
+
+/* ---------- Small phones: put Register Now inside the menu ---------- */
+@media (max-width: 520px){
+    .nav-right .btn{
+        display: none;
+    }
+    .nav-mobile-cta{
+        display: block;
+        width: 92%;
+        max-width: none;
+        height: 46px;
+        margin: 4px auto 18px;
+        border-radius: 100px;
+        border: 1px solid #7B61A9;
+        background-color: #C62431;
+        color: #FFFFFF;
+        font-family: Poppins;
+        font-weight: 500;
+        font-size: 18px;
+        cursor: pointer;
+    }
+}

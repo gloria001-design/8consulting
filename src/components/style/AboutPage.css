@@ -1,0 +1,223 @@
+.about {
+  --about-ink: #2b1055;
+  --about-body: #4a4a5a;
+  --about-radius: 18px;
+
+  font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+  color: var(--about-body);
+  background: #ffffff;
+}
+
+/* ==========================================================================
+   Hero Section (Full 100vh)
+   ========================================================================== */
+.about-hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;      /* Full viewport height */
+  height: 100dvh;     /* Dynamic viewport height for mobile browsers */
+  min-height: 580px;  /* Prevents content clipping on short screens */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-size: cover;
+  background-position: center 20%;
+  background-repeat: no-repeat;
+  text-align: center;
+  overflow: hidden;
+}
+
+.about-hero__overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(10, 10, 25, 0.62); /* Semi-transparent dark overlay */
+}
+
+.about-hero__content {
+  position: relative;
+  z-index: 2;
+  max-width: 860px;
+  padding: 0 24px;
+  color: #ffffff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.about-hero__title {
+  font-size: clamp(32px, 4.8vw, 56px);
+  font-weight: 700;
+  line-height: 1.15;
+  margin-bottom: 20px;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.about-hero__text {
+  font-size: clamp(14px, 1.4vw, 17px);
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.92);
+  max-width: 720px;
+  margin: 0 auto 36px;
+  font-weight: 400;
+}
+
+.about-hero__actions {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 32px;
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.25s ease;
+}
+
+.about-btn--primary {
+  background-color: #ffffff;
+  color: #1a1a2e;
+}
+
+.about-btn--primary:hover {
+  background-color: #f2f2f7;
+  transform: translateY(-2px);
+}
+
+.about-btn--ghost {
+  background-color: transparent;
+  border: 1.5px solid rgba(255, 255, 255, 0.85);
+  color: #ffffff;
+}
+
+.about-btn--ghost:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   Text + Image Grid Rows
+   ========================================================================== */
+.about-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: clamp(36px, 6vw, 72px);
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 64px 24px;
+}
+
+.about-heading {
+  font-size: clamp(26px, 2.5vw, 32px);
+  font-weight: 800;
+  color: var(--about-ink);
+  margin-bottom: 16px;
+}
+
+.about-heading--spaced {
+  margin-top: 40px;
+}
+
+.about-row__text p {
+  font-size: 15px;
+  line-height: 1.7;
+  color: #525266;
+  margin-bottom: 14px;
+}
+
+.about-row__text p:last-child {
+  margin-bottom: 0;
+}
+
+.about-row__img {
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  object-fit: cover;
+  border-radius: var(--about-radius);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.06);
+}
+
+/* ==========================================================================
+   Founder Section
+   ========================================================================== */
+.about-founder__figure {
+  position: relative;
+  margin: 0;
+  border-radius: var(--about-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.about-founder__img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: var(--about-radius);
+}
+
+/* Glassmorphism Name Tag */
+.about-founder__caption {
+  position: absolute;
+  left: 16px;
+  bottom: 16px;
+  display: flex;
+  flex-direction: column;
+  padding: 10px 18px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.35);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  color: #ffffff;
+}
+
+.about-founder__caption strong {
+  font-size: 14px;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.about-founder__caption span {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* ==========================================================================
+   Mobile Responsive
+   ========================================================================== */
+@media (max-width: 820px) {
+  .about-hero {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  .about-row {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    padding: 36px 20px;
+  }
+
+  .about-row__img {
+    order: 2;
+  }
+
+  .about-row--founder .about-founder__figure {
+    order: 1;
+  }
+
+  .about-row--founder .about-row__text {
+    order: 2;
+  }
+}

@@ -1,0 +1,71 @@
+.gallery {
+  --gallery-gap: clamp(4px, 1.2vw, 12px);
+  --gallery-radius: clamp(6px, 1vw, 14px);
+
+  background: #ffffff;
+  color: #1a1a2e;
+  font-family: "Poppins", "Segoe UI", system-ui, sans-serif;
+  padding: clamp(32px, 6vw, 96px) clamp(16px, 5vw, 64px);
+}
+
+.gallery__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.gallery__header {
+  max-width: 620px;
+  margin-bottom: clamp(24px, 4vw, 48px);
+}
+
+.gallery__title {
+  font-size: clamp(26px, 4vw, 40px);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 14px;
+}
+
+.gallery__lead {
+  font-size: clamp(14px, 1.5vw, 16px);
+  line-height: 1.7;
+  color: #55556b;
+  margin: 0;
+}
+
+/*
+  Justified rows: every row is the same height.
+  Regular tile = 11:10, wide tile = 3:2. Width is shared by ratio,
+  so a row of (regular, regular, wide) always fills the full width.
+*/
+.gallery__rows {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gallery-gap);
+}
+
+.gallery__row {
+  display: flex;
+  gap: var(--gallery-gap);
+}
+
+.gallery__item {
+  flex: 1.1 1 0;
+  min-width: 0;
+  aspect-ratio: 1.1 / 1;
+  overflow: hidden;
+  border-radius: var(--gallery-radius);
+  background: #e8e8f0;
+}
+
+.gallery__item--wide {
+  flex: 1.5 1 0;
+  aspect-ratio: 1.5 / 1;
+}
+
+.gallery__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 35%;
+}
